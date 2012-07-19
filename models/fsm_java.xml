@@ -1,0 +1,32 @@
+	
+	<?xml version="1.0" encoding="UTF-8"?>
+	<textual_specification metamodel="models/fsm_metamodel.xmi" file_extension="java">
+		<class name="FSM">
+			<constant>new FSM(</constant>
+			<attribute name="inputAlphabet" />
+			<constant>, </constant>
+			<attribute name="outputAlphabet" />
+			<constant>)</constant>
+			<reference to="State" />
+			<constant>;</constant>
+		</class>
+		<class name="State">
+			<constant>\n\t.add(new State(</constant>
+			<attribute name="id" />
+			<constant>, </constant>
+			<attribute name="start" />
+			<constant>)</constant>
+			<reference to="Transition" />
+			<constant>)</constant>
+		</class>
+		<class name="Transition">
+			<constant>\n\t\t.add(new Transition(</constant>
+			<attribute name="inputt" />
+			<constant>, </constant>
+			<attribute name="output" />
+			<constant>, </constant>
+			<attribute name="target" />
+			<constant>))</constant>
+		</class>
+	</textual_specification>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model_to_model_mapping 
+	source_metamodel="models/fsm_metamodel.xmi"
+	target_metamodel="models/uml_metamodel.xmi">
+	<class-class>
+		<finder side="left" criteria="name" value="FSM" />
+		<finder side="right" criteria="name" value="StateMachine" />
+		<property direction="forward" name="name" value="StateMachine" />
+		<property direction="reverse" name="name" value="FSM" />
+		<reference-reference>
+			<finder side="left" criteria="name" value="states" />
+			<finder side="right" criteria="name" value="subvertices" />
+			<property direction="forward" name="name" value="states" />
+			<property direction="reverse" name="name" value="subvertices" />
+		</reference-reference>
+	</class-class>
+	<class-class>
+		<finder side="left" criteria="name" value="State" />
+		<finder side="right" criteria="name" value="Vertex" />
+		<property direction="forward" name="name" value="Vertex" />
+		<property direction="reverse" name="name" value="State" />
+		<attribute-attribute>
+			<finder side="left" criteria="name" value="id" />
+			<finder side="right" criteria="name" value="name" />
+			<property direction="forward" name="name" value="name" />
+			<property direction="reverse" name="name" value="id" />
+		</attribute-attribute>
+		<reference-reference>
+			<finder side="left" criteria="name" value="transitions" />
+			<finder side="right" criteria="name" value="transitions" />
+			<property direction="forward" name="name" value="transitions" />
+			<property direction="reverse" name="name" value="transitions" />
+		</reference-reference>
+	</class-class>
+	<class-class>
+		<finder side="left" criteria="name" value="Transition" />
+		<finder side="right" criteria="name" value="Transition" />
+		<property direction="forward" name="name" value="Transition" />
+		<property direction="reverse" name="name" value="Transition" />
+		<attribute-attribute>
+			<finder side="left" criteria="name" value="target" />
+			<finder side="right" criteria="name" value="target" />
+			<property direction="forward" name="name" value="target" />
+			<property direction="reverse" name="name" value="target" />
+		</attribute-attribute>
+	</class-class>
+</model_to_model_mapping>

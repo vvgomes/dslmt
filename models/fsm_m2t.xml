@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<textual_specification metamodel="models/fsm_metamodel.xmi" file_extension="fsm">
+	<eclass name="fsm">
+		<constant>inputAlphabet </constant>
+		<eattribute name="inputAlphabet" />
+		<constant>\n</constant>
+		<constant>outputAlphabet </constant>
+		<eattribute name="outputAlphabet" />
+		<constant>\n</constant>
+		<ereference to="state" />
+	</eclass>
+	<eclass name="state">
+		<constant optional="true" associated_with="start">start </constant>
+		<constant>state </constant>
+		<eattribute name="id" filter="as_id" />
+		<constant>\n</constant>
+		<constant>\t</constant>
+		<ereference to="transition" />
+	</eclass>
+	<eclass name="transition">
+		<constant>transition </constant>
+		<eattribute name="inputt" />
+		<constant> / </constant>
+		<eattribute name="output" />
+		<constant> -> </constant>
+		<eattribute name="target" filter="as_id" />
+	</eclass>
+</textual_specification>

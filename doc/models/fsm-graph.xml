@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model_to_model_mapping 
+	source_metamodel="models/fsm-metamodel.xmi"
+	target_metamodel="models/graph-metamodel.xmi">
+	<eclass-eclass>
+		<finder side="left" criteria="name" value="fsm" />
+		<finder side="right" criteria="name" value="graph" />
+		<property direction="forward" name="name" value="graph" />
+		<property direction="reverse" name="name" value="fsm" />
+		<ereference-ereference>
+			<finder side="left" criteria="name" value="state" />
+			<finder side="right" criteria="name" value="node" />
+			<property direction="forward" name="name" value="node" />
+			<property direction="reverse" name="name" value="state" />
+		</ereference-ereference>
+	</eclass-eclass>
+	<eclass-eclass>
+		<finder side="left" criteria="name" value="state" />
+		<finder side="right" criteria="name" value="node" />
+		<property direction="forward" name="name" value="node" />
+		<property direction="reverse" name="name" value="state" />
+		<eattribute-eattribute>
+			<finder side="left" criteria="name" value="id" />
+			<finder side="right" criteria="name" value="label" />
+			<property direction="forward" name="name" value="label" />
+			<property direction="reverse" name="name" value="id" />
+		</eattribute-eattribute>
+		<ereference-ereference>
+			<finder side="left" criteria="name" value="transition" />
+			<finder side="right" criteria="name" value="edge" />
+			<property direction="forward" name="name" value="edge" />
+			<property direction="reverse" name="name" value="transition" />
+		</ereference-ereference>
+	</eclass-eclass>
+	<eclass-eclass>
+		<finder side="left" criteria="name" value="transition" />
+		<finder side="right" criteria="name" value="edge" />
+		<property direction="forward" name="name" value="edge" />
+		<property direction="reverse" name="name" value="transition" />
+		<eattribute-eattribute>
+			<finder side="left" criteria="name" value="target" />
+			<finder side="right" criteria="name" value="target" />
+			<property direction="forward" name="name" value="target" />
+			<property direction="reverse" name="name" value="target" />
+		</eattribute-eattribute>
+	</eclass-eclass>
+</model_to_model_mapping>

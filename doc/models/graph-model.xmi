@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<graph:graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:graph="br.pucrs">
+  <node label="Even">
+    <edge target="Odd"/>
+    <edge target="Even"/>
+  </node>
+  <node label="Odd">
+    <edge target="Even"/>
+    <edge target="Odd"/>
+  </node>
+</graph:graph>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.5.0_16-133 (Apple Inc.)
+Main-Class: br.pucrs.dslmt.Dslmt
+Class-Path: ../lib/antlr-2.7.7.jar ../lib/antlr-3.1.3.jar ../lib/cglib
+ -nodep-2.1_3.jar ../lib/commons-lang-2.4.jar ../lib/easymock-2.4.jar 
+ ../lib/easymockclassextension-2.4.jar ../lib/emf.common_2.1.0.jar ../
+ lib/emf.commonj.sdo_2.1.0.jar ../lib/emf.ecore.change.edit_2.1.0.jar 
+ ../lib/emf.ecore.change_2.1.0.jar ../lib/emf.ecore.edit_2.1.1.jar ../
+ lib/emf.ecore.sdo.edit_2.1.0.jar ../lib/emf.ecore.sdo_2.1.1.jar ../li
+ b/emf.ecore.xmi_2.1.0.jar ../lib/emf.ecore_2.1.0.jar ../lib/emf.edit_
+ 2.1.1.jar ../lib/emf.mapping.ecore2xml_2.1.0.jar ../lib/javassist-3.9
+ .0.GA.jar ../lib/junit-4.5.jar ../lib/objenesis-1.1.jar ../lib/string
+ template-3.2.jar ../lib/tools.jar ../lib/xsd.edit_2.1.0.jar ../lib/xs
+ d_2.1.1.jar
+

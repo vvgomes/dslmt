@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fsm:fsm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fsm="br.pucrs" inputAlphabet="01" outputAlphabet="eo">
+  <state id="Even" start="true">
+    <transition inputt="48" output="111" target="Odd"/>
+    <transition inputt="49" output="101" target="Even"/>
+  </state>
+  <state id="Odd">
+    <transition inputt="48" output="101" target="Even"/>
+    <transition inputt="49" output="111" target="Odd"/>
+  </state>
+</fsm:fsm>

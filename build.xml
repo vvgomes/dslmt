@@ -1,0 +1,102 @@
+<project name="dslmt" default="dist" basedir=".">
+	<description>
+		dslmt = dsl model transformation tool
+	</description>
+		
+	<property name="src" location="src"/>
+	<property name="test" location="test"/>
+	<property name="build" location="bin"/>
+	<property name="lib" location="lib"/>
+	<property name="dist" location="dist"/>
+	<property name="jar.name" value="dslmt.jar"/>
+	<property name="test.unit.suite" value="br.pucrs.dslmt.UnitTestSuite" />
+	<property name="test.integration.suite" value="br.pucrs.dslmt.IntegrationTestSuite" />
+	<property name="test.acceptance.suite" value="br.pucrs.dslmt.CommandLineToolTest" />
+	
+	<path id="compile.classpath">  
+		<fileset dir="${lib}">  
+			<include name="*.jar" /> 
+		</fileset>
+	</path>
+	
+	<path id="test.classpath">
+  		<pathelement location="${build}" />
+  		<fileset dir="${lib}">
+  			<include name="*.jar"/>
+  		</fileset>
+	</path>
+	
+	<target name="init">
+		<mkdir dir="${build}"/>
+	</target>
+	
+	<target name="compile" depends="init" description="compile the source " >
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath refid="compile.classpath"/>  
+		</javac> 
+	</target>
+	
+	<target name="test.unit" depends="compile" description="tests">
+		<junit fork="yes" haltonfailure="yes">
+			<test name="${test.unit.suite}" />
+			<formatter type="plain" usefile="false" />
+			<classpath refid="test.classpath" />
+		</junit>
+	</target>
+	
+	<target name="test.integration" depends="compile" description="tests">
+		<junit fork="yes" haltonfailure="yes">
+			<test name="${test.integration.suite}" />
+			<formatter type="plain" usefile="false" />
+			<classpath refid="test.classpath" />
+		</junit>
+	</target>
+	
+	<target name="test.acceptance" depends="compile" description="tests">
+		<junit fork="yes" haltonfailure="yes">
+			<test name="${test.acceptance.suite}" />
+			<formatter type="plain" usefile="false" />
+			<classpath refid="test.classpath" />
+		</junit>
+	</target>
+	
+	<target name="test" depends="test.unit, test.integration, test.acceptance"/>
+	
+	<target name="dist" depends="compile" description="generate a light jar" >
+		<mkdir dir="${dist}"/>
+		<delete file="${dist}/manifest.mf"/>
+		<!-- lib jars references -->
+		<pathconvert property="libs" pathsep=" ">  
+			<mapper>  
+		 		<chainedmapper>   
+		 			<flattenmapper />    
+		 			<globmapper from="*" to="../lib/*" />  
+		   		</chainedmapper>  
+		 	</mapper>  
+			<path>
+				<fileset dir="${lib}">  
+					<include name="*.jar" />  
+				</fileset>  
+			</path>
+		</pathconvert>
+		<manifest file="${dist}/manifest.mf">
+			<attribute name="Main-Class" value="br.pucrs.dslmt.Dslmt"/>
+			<attribute name="Class-Path" value="${libs}"/>
+		</manifest>
+		<jar jarfile="${dist}/${jar.name}" 
+			basedir="${build}"
+			manifest="${dist}/manifest.mf"/>
+	</target>
+	
+	<target name="run" depends="dist">
+	    <java classname="br.pucrs.dslmt.Dslmt"
+	          classpath="${dist}/${jar.name}"
+	          fork="true" />
+	</target>
+	
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+		
+</project>

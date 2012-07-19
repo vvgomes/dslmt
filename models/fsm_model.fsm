@@ -1,0 +1,8 @@
+inputAlphabet "01"
+outputAlphabet "eo"
+start state Even
+	transition '0' / 'o' -> Odd
+	transition '1' / 'e' -> Even
+state Odd
+	transition '0' / 'e' -> Even
+	transition '1' / 'o' -> Odd
